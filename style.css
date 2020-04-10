@@ -1,0 +1,62 @@
+
+
+body{
+    padding: 3%;
+    background-color: #70d6ff;
+}
+
+
+h1{
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    display: inline-block;
+    color: #ff70a6;
+    font-size: 70px;
+     
+}
+
+#list{
+    font-family: 'Fredoka One', cursive;
+    border-radius: 10px;
+}
+
+Button{
+    font-family: 'Fredoka One', cursive;
+    border-radius: 10px;
+}
+
+#searchterm{
+    font-family: 'Fredoka One', cursive;
+    border-radius: 10px;
+}
+
+::placeholder{
+    color: #ff9770;
+}
+
+img{
+    padding-right: 1em;
+}
+
+form{
+    padding-bottom: 2em;
+}
+
+.search_container{
+    /* display: flex;
+    flex: 1 1 0; */
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+
+
+.container{
+    background-color: #ffd670;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 1em;
+    border-style: solid;
+    border-color: #e9ff70;
+    border-width: 5px;
+}

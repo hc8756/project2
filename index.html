@@ -5,15 +5,51 @@
   <meta charset="utf-8">
   <title>Gif Finder 2.0</title>
   <link href="style.css" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+    </style>
 </head>
-
 <body>
+  <main>
+    <div class="wrapper">
+      <div class="search_container">
+      <img src="images/small.png" atl="logo">
+      <h1>Gif Finder 2.0</h1>
+      <form>
+        
+        
+        <input id="searchterm" type="text" placeholder="Search..."size="50" maxlength="50"/>
 
-  <p>Hello, world!</p>
+        <button type="submit">Submit</button>
 
-  <script src="script.js"></script>
+        <select id="list">
+          <option value="most_recent">Most Recent</option>
+          <option value="most_popular">Most Popular</option>
+          <option value="leasr_popular">Least Popular</option>
+        </select>
+      </form>
+      </div>
+
+
+      <div class="container">
+        <!--to hold the gifs into-->
+        <p>
+          ;wefokweo;kef;oefkw;foekfkfe
+          fweklfwejlfejkflkjklfjweklfwejflkejfklf
+          wkfwelfkjlfkefkljwefklejflkejflkfjwoifhew
+          (gifs go here) but the API knows how to place them there
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!--<script src="script.js"></script>-->
 </body>
 
 </html>
