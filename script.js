@@ -5,8 +5,8 @@
 	
     function searchButtonClicked(){
         console.log("searchButtonClicked() called");
-        const GIPHY_URL="http://api.giphy.com/v1/gifs/search?";
-        let GIPHY_KEY="dc6zaTOxFJmzC";
+        const GIPHY_URL="https://api.giphy.com/v1/gifs/search?";
+        let GIPHY_KEY="w8GTqTqGWlt6NUXKzAih7gGJ36x4HPZu";
         let url= GIPHY_URL;
         url+="api_key="+GIPHY_KEY;
         let term=document.querySelector("#searchterm").value;
