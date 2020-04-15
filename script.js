@@ -6,7 +6,7 @@
     function searchButtonClicked(){
         console.log("searchButtonClicked() called");
         const GIPHY_URL="https://api.giphy.com/v1/gifs/search?";
-        let GIPHY_KEY="w8GTqTqGWlt6NUXKzAih7gGJ36x4HPZu";
+        let GIPHY_KEY="Gd4QNuLwAdImrpZDlz6ASyfRbj6MKkKi"; //added own key
         let url= GIPHY_URL;
         url+="api_key="+GIPHY_KEY;
         let term=document.querySelector("#searchterm").value;
@@ -48,13 +48,34 @@
             let smallURL=result.images.fixed_width_downsampled.url;
             if(!smallURL) smallURL = "images/no-image-found.png";
             let url=result.url;
-            //download button and copy url functions
+            //download button 
             let line=`<div class='result'><img src='${smallURL}' title='${result.id}'/>`;
             line+= `<span><a target= '_blank' href= '${url}'> View on Giphy </a></span></div>`;
+            //start of copy url functions
+            line+=`<button class="copyURLButton" onclick="copyURLText('${url}')"> <--Copy URL</button></div>`;
             bigString+=line;
         }
         document.querySelector("#content").innerHTML= bigString;
         //document.querySelector("#status").innerHTML= "<b>Success!</b><p><i>Here are"+results.length+" results for "+displayTerm+"</i></p>";
+    }
+
+    //makes a giant button for copying the URL of the GIF
+    function copyURLText(url)
+    {
+        const Userinput = document.createElement('input');
+        Userinput.setAttribute('readonly', 'readyonly');
+        Userinput.setAttribute('value', url);
+        document.body.appendChild(Userinput);
+        Userinput.select();
+        Userinput.setSelectionRange(0, 9999);
+        if (document.execCommand("Copy", "false", "null")){
+            alert("URL Copy is now copied!");
+        }
+        else {
+            alert("URL didn't copy over try again!")
+        }
+
+
     }
     function dataError(e){
         console.log("An error occurred");

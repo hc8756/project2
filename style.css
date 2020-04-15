@@ -30,6 +30,12 @@ Button{
     border-radius: 10px;
 }
 
+#status{
+    font-family: 'Fredoka One', cursive;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+}
+
 ::placeholder{
     color: #ff9770;
 }
@@ -53,6 +59,7 @@ form{
 
 #content{
     background-color: #ffd670;
+    padding: 1.5em;
     text-align: center;
     font-family: 'Fredoka One', cursive;
     border-radius: 1em;
@@ -63,5 +70,20 @@ form{
     display:grid;
      grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
      gap:10px;
+}
+
+.copyURLButton{
+    font-family: 'Fredoka One', cursive;
+    border-color: #e9ff70;
+    border-radius: 1.5em;
+    background-color: #ff70a6 ;
+    font-size: 20px;
+    padding: 0em;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.copyURLButton:hover{
+    background-color: #ff97bf;
 }
 
