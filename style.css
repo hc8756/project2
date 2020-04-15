@@ -51,7 +51,7 @@ form{
 
 
 
-.container{
+#content{
     background-color: #ffd670;
     text-align: center;
     font-family: 'Fredoka One', cursive;
@@ -59,4 +59,9 @@ form{
     border-style: solid;
     border-color: #e9ff70;
     border-width: 5px;
+
+    display:grid;
+     grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+     gap:10px;
 }
+
