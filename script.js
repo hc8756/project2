@@ -49,10 +49,11 @@
             if(!smallURL) smallURL = "images/no-image-found.png";
             let url=result.url;
             //download button 
-            let line=`<div class='result'><img src='${smallURL}' title='${result.id}'/>`;
-            line+= `<span><a target= '_blank' href= '${url}'> View on Giphy </a></span></div>`;
+            let line=`<div class='result'> <img src='${smallURL}' title='${result.id}'/>`;
+            line+= `<span><a target= '_blank' href= '${url}' id = cpText > View on Giphy </a></span>`;
             //start of copy url functions
-            line+=`<button class="copyURLButton" onclick="copyURLText('${url}')"> <--Copy URL</button></div>`;
+            line+=`<button class="copyURLButton" onclick="copyURLText('${url}')">Copy URL</button>`;
+            line += `<button class="favButton">Favorite</button></div>`;
             bigString+=line;
         }
         document.querySelector("#content").innerHTML= bigString;
@@ -62,20 +63,13 @@
     //makes a giant button for copying the URL of the GIF
     function copyURLText(url)
     {
-        const Userinput = document.createElement('input');
-        Userinput.setAttribute('readonly', 'readyonly');
-        Userinput.setAttribute('value', url);
-        document.body.appendChild(Userinput);
-        Userinput.select();
-        Userinput.setSelectionRange(0, 9999);
-        if (document.execCommand("Copy", "false", "null")){
-            alert("URL Copy is now copied!");
-        }
-        else {
-            alert("URL didn't copy over try again!")
-        }
-
-
+        var cpText= document.createElement("textarea");
+        document.body.appendChild(cpText);
+        cpText.value = url;
+        cpText.select();
+        document.execCommand("copy");
+        alert("Url has been copied");
+        document.body.removeChild(cpText);
     }
     function dataError(e){
         console.log("An error occurred");
