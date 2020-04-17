@@ -89,4 +89,9 @@ form{
 img{
     padding: 2em;
 }
-button{}
+#showFavButton{
+    height: 3.0em;
+    width: 9.0em;
+    font-size: 14pt;
+    background-color: white;
+}

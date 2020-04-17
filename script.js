@@ -52,8 +52,8 @@
             let line=`<div class='result'> <img src='${smallURL}' title='${result.id}'/>`;
             line+= `<span><a target= '_blank' href= '${url}' id = cpText > View on Giphy </a></span>`;
             //start of copy url functions
-            line+=`<button class="copyURLButton" onclick="copyURLText('${url}')">Copy URL</button>`;
-            line += `<button class="favButton">Favorite</button></div>`;
+            line+=`<button class="copyURLButton" onclick="copyURLText('${smallURL}')"> <--Copy URL</button>`;
+            line += `<button class="favButton" onclick= "addToFavorites('${smallURL}')">Favorite</button></div>`;
             bigString+=line;
         }
         document.querySelector("#content").innerHTML= bigString;
@@ -63,6 +63,18 @@
     //makes a giant button for copying the URL of the GIF
     function copyURLText(url)
     {
+        /*const Userinput = document.createElement('input');
+        Userinput.setAttribute('readonly', 'readyonly');
+        Userinput.setAttribute('value', url);
+        document.body.appendChild(Userinput);
+        Userinput.select();
+        Userinput.setSelectionRange(0, 9999);
+        if (document.execCommand("Copy", "false", "null")){
+            alert("URL Copy is now copied!");
+        }
+        else {
+            alert("URL didn't copy over try again!")
+        }*/
         var cpText= document.createElement("textarea");
         document.body.appendChild(cpText);
         cpText.value = url;
@@ -73,4 +85,21 @@
     }
     function dataError(e){
         console.log("An error occurred");
+    }
+    //global vairable for  favorites array
+    let favArray = [];
+    function showFavorites(){
+        let line = "";
+        for(var i = 0; i< favArray.length;i++){
+            line += '<img src =' + favArray[i] + "/>";
+        }
+        document.querySelector("#content").innerHTML= "";
+        document.querySelector("#status").innerHTML = "Favorites";
+        document.querySelector("#content").innerHTML= line ;
+
+    }
+   
+    function addToFavorites(url){
+        favArray.push(url);
+        alert("added to favorites !");
     }
