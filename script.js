@@ -22,6 +22,8 @@
         document.querySelector("#status").innerHTML="<b>Searching for "+displayTerm+"</b>";
         console.log(url);
         getData(url);
+        
+        
     }
 
     function getData(url){
@@ -43,7 +45,8 @@
         let results= obj.data;
         console.log("results.length="+results.length);
         let bigString="";
-        for (let i=0;i<results.length;i++){
+        //original
+        /*for (let i=0;i<results.length;i++){
             let result=results[i];
             let smallURL=result.images.fixed_width_downsampled.url;
             if(!smallURL) smallURL = "images/no-image-found.png";
@@ -55,8 +58,26 @@
             line+=`<button class="copyURLButton" onclick="copyURLText('${smallURL}')"> <--Copy URL</button>`;
             line += `<button class="favButton" onclick= "addToFavorites('${smallURL}')">Favorite</button></div>`;
             bigString+=line;
+        }*/ 
+        //mine starts here
+        for (let i=0;i<results.length;i++){
+            let result=results[i];
+            
+            let smallURL=result.images.fixed_width_downsampled.url;
+            if(!smallURL) smallURL = "images/no-image-found.png";
+            let url=result.url;
+            //download button 
+            let line=`<div class='result'> <img src='${smallURL}' title='${result.id}'/>`;
+            line+= `<span><a target= '_blank' href= '${url}' id = cpText > View on Giphy </a></span>`;
+            //start of copy url functions
+            line+=`<button class="copyURLButton" onclick="copyURLText('${smallURL}')"> <--Copy URL</button>`;
+            line += `<button class="favButton" onclick= "addToFavorites('${smallURL}')">Favorite</button></div>`;
+            bigString+=line;
         }
+        //mind ends here
+        
         document.querySelector("#content").innerHTML= bigString;
+        
         //document.querySelector("#status").innerHTML= "<b>Success!</b><p><i>Here are"+results.length+" results for "+displayTerm+"</i></p>";
     }
 
@@ -103,3 +124,22 @@
         favArray.push(url);
         alert("added to favorites !");
     }
+
+    function sort(param){
+        var options= document.querySelector("#list");
+        var selectedOption= options.selectedIndex;
+        //sorts by most recent upload date
+        if(selectedOption==0){
+
+            for(var i=0;i<param.length;i++){
+                current=param[i];
+                let uploadDate= current.trending_datetime;
+                
+            }
+        }
+        //sorts by most recent trending date
+        else{
+
+        }
+    
+        }

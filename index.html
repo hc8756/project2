@@ -25,17 +25,17 @@
           <button type="button" id="search">Submit</button>
 
 
-          <select id="list">
+          <select id="list" onchange="sort()">
             <option value="most_recent">Most Recent</option>
             <option value="most_popular">Most Popular</option>
-            <option value="least_popular">Least Popular</option>
+            <!--<option value="least_popular">Least Popular</option>-->
           </select>
         </form>
         <button id="showFavButton" onclick="showFavorites()">Show Favorites</button>
       </div>
       <div id="status">Ready to Search!</div>
       <div id="content">
-        <p>Additional features we will add: favorites list, load more as you scroll down, sort by date/popularity</p>
+        <p>It's pronounced GIF!</p>
       </div>
     </div>
   </main>
