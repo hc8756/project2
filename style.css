@@ -15,7 +15,7 @@ h1{
      
 }
 
-#list{
+#list, #limit{
     font-family: 'Fredoka One', cursive;
     border-radius: 10px;
 }

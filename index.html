@@ -25,11 +25,20 @@
           <button type="button" id="search">Submit</button>
 
 
-          <select id="list" onchange="sort()">
+          <select id="list">
             <option value="most_recent">Most Recent</option>
             <option value="most_popular">Trending</option>
 
           </select>
+
+          <select id="limit">
+            <option value="5">5 images</option>
+            <option value="10" selected>10 images</option>
+            <option value="25">25 images</option>
+            <option value="50">50 images</option>
+            <option value="100">100 images</option>
+          </select>
+          
         </form>
         <button id="showFavButton" onclick="showFavorites()">Show Favorites</button>
       </div>

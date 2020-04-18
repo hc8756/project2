@@ -16,8 +16,7 @@
         if(term.length<1) return;
         url+="&q="+term;
         //Make it so that limit increases when you scroll down+load loading image
-        //Finda way to sort images
-        let limit=20;
+        let limit=document.querySelector("#limit").value;
         url+="&limit="+limit;
         document.querySelector("#status").innerHTML="<b>Searching for "+displayTerm+"</b>";
         console.log(url);
@@ -46,21 +45,6 @@
         console.log("results.length="+results.length);
         let bigString="";
         sort(results);
-        //original
-        /*for (let i=0;i<results.length;i++){
-            let result=results[i];
-            let smallURL=result.images.fixed_width_downsampled.url;
-            if(!smallURL) smallURL = "images/no-image-found.png";
-            let url=result.url;
-            //download button 
-            let line=`<div class='result'> <img src='${smallURL}' title='${result.id}'/>`;
-            line+= `<span><a target= '_blank' href= '${url}' id = cpText > View on Giphy </a></span>`;
-            //start of copy url functions
-            line+=`<button class="copyURLButton" onclick="copyURLText('${smallURL}')"> <--Copy URL</button>`;
-            line += `<button class="favButton" onclick= "addToFavorites('${smallURL}')">Favorite</button></div>`;
-            bigString+=line;
-        }*/ 
-        //mine starts here
         for (let i=0;i<results.length;i++){
             let result=results[i];
             
@@ -78,8 +62,7 @@
             line += `<button class="favButton" onclick= "addToFavorites('${smallURL}')">Favorite</button></div>`;
             bigString+=line;
         }
-        
-        //mind ends here
+    
         
         document.querySelector("#content").innerHTML= bigString;
         
@@ -174,3 +157,4 @@
         }
     
     }
+    
