@@ -45,6 +45,7 @@
         let results= obj.data;
         console.log("results.length="+results.length);
         let bigString="";
+        sort(results);
         //original
         /*for (let i=0;i<results.length;i++){
             let result=results[i];
@@ -66,14 +67,18 @@
             let smallURL=result.images.fixed_width_downsampled.url;
             if(!smallURL) smallURL = "images/no-image-found.png";
             let url=result.url;
+            
             //download button 
             let line=`<div class='result'> <img src='${smallURL}' title='${result.id}'/>`;
             line+= `<span><a target= '_blank' href= '${url}' id = cpText > View on Giphy </a></span>`;
+            //sorting information
+            line+= `<span> upload date: ${result.import_datetime.substring(0,10)}</span>`;
             //start of copy url functions
             line+=`<button class="copyURLButton" onclick="copyURLText('${smallURL}')"> <--Copy URL</button>`;
             line += `<button class="favButton" onclick= "addToFavorites('${smallURL}')">Favorite</button></div>`;
             bigString+=line;
         }
+        
         //mind ends here
         
         document.querySelector("#content").innerHTML= bigString;
@@ -125,21 +130,47 @@
         alert("added to favorites !");
     }
 
+    //uses selection sort to sort by correct filter
     function sort(param){
         var options= document.querySelector("#list");
         var selectedOption= options.selectedIndex;
-        //sorts by most recent upload date
+        //sorts by upload date
         if(selectedOption==0){
-
-            for(var i=0;i<param.length;i++){
-                current=param[i];
-                let uploadDate= current.trending_datetime;
-                
+            var max_idx;  
+            for (var i = 0; i < param.length-1; i++)  
+            {  
+                max_idx = i;  
+                for (var j = i+1; j < param.length; j++)  
+                {
+                    if ( Date.parse(param[j].import_datetime )> Date.parse(param[max_idx].import_datetime))  
+                    {
+                        max_idx = j;   
+                    }
+                    
+                }
+                var a = param[max_idx], b = param[i];
+                param[i] = a;
+                param[max_idx] = b;
+            }  
+        }
+        //sorts by most trending date
+        else{
+            var max_idx;  
+            for (var i = 0; i < param.length-1; i++)  
+            {  
+                max_idx = i;  
+                for (var j = i+1; j < param.length; j++)  
+                {
+                    if ( Date.parse(param[j].trending_datetime )> Date.parse(param[max_idx].trending_datetime))  
+                    {
+                        max_idx = j;   
+                    }
+                    
+                }
+                var a = param[max_idx], b = param[i];
+                param[i] = a;
+                param[max_idx] = b;
             }
         }
-        //sorts by most recent trending date
-        else{
-
-        }
     
-        }
+    }
